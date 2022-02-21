@@ -1,6 +1,7 @@
 package com.example.test.controller;
 
 import com.example.test.dto.Customer;
+import com.example.test.dto.CustomerWithoutId;
 import com.example.test.service.CustomerService;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class CustomerController {
     }
 
     @PostMapping(produces = "application/json")
-    public Customer createCustomer(@RequestBody Customer customer) {
+    public Customer createCustomer(@RequestBody CustomerWithoutId customer) {
         return customerService.createCustomer(customer);
     }
 

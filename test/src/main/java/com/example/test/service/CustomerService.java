@@ -1,6 +1,7 @@
 package com.example.test.service;
 
 import com.example.test.dto.Customer;
+import com.example.test.dto.CustomerWithoutId;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,7 +16,9 @@ public class CustomerService {
         return customers;
     }
 
-    public Customer createCustomer(Customer customer) {
+    public Customer createCustomer(CustomerWithoutId customerWithoutId) {
+        final var max = customers.stream().map(Customer::id).max(Long::compareTo).orElse(0L) + 1;
+        final var customer = new Customer(max, customerWithoutId.firstname(), customerWithoutId.surname());
         customers.add(customer);
         return customer;
     }
