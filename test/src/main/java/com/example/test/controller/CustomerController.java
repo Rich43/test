@@ -12,7 +12,7 @@ import java.util.Collection;
 public class CustomerController {
     private final CustomerService customerService;
 
-    public CustomerController(CustomerService customerService) {
+    public CustomerController(final CustomerService customerService) {
         this.customerService = customerService;
     }
 
@@ -22,12 +22,12 @@ public class CustomerController {
     }
 
     @PostMapping(produces = "application/json")
-    public Customer createCustomer(@RequestBody CustomerWithoutId customer) {
+    public Customer createCustomer(@RequestBody final CustomerWithoutId customer) {
         return customerService.createCustomer(customer);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCustomer(@PathVariable("id") Long id) {
+    public void deleteCustomer(@PathVariable("id") final Long id) {
         customerService.deleteCustomer(id);
     }
 }
