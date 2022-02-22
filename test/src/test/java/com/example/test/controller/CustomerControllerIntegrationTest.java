@@ -19,11 +19,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class CustomerControllerIT {
+public class CustomerControllerIntegrationTest {
     @Autowired
     private MockMvc mockMvc;
 
-    private final Logger log = getLogger(CustomerControllerIT.class);
+    private final Logger log = getLogger(CustomerControllerIntegrationTest.class);
 
     @BeforeEach
     public void setUp() throws Exception {
